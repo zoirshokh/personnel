@@ -15,8 +15,10 @@ setupSwagger(app); // <-- MUHIM QATOR
 app.use("/auth", require("./routes/authRoute"));
 app.use("/work", require("./routes/workRoute"));
 
+const PORT = process.env.PORT || 2000;
+
 sequelize.sync().then(() => {
-  app.listen(process.env.PORT, () => {
-    console.log("Server ishladi");
+  app.listen(PORT, () => {
+    console.log("✅ Server ishladi:", PORT);
   });
 });
